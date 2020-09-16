@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>vue01</title>
+  </head>
+
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+      {{ message }}
+      <h2>{{ school.name }} {{ school.mobile }}</h2>
+      <ul>
+        <li v-text="message+'!'"></li>
+        <li> 你好 {{ school.name }} </li>
+      </ul>
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: "你好小黑",
+          school: {
+            name: "feix",
+            mobile: "4002341234",
+          },
+          campus: ["北京", "上海", "深圳"]
+        }
+        
+      });
+    </script>
+  </body>
+</html>
