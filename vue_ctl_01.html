@@ -8,8 +8,11 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <div id="app" >
+      <div v-show="isShow">
       <button @click="sub">-</button><span>{{ num }}</span
-      ><button @click="add">+</button>
+      ><button @click="add">+</button>      
+    </div>
+    <button @click="doVisbile">是否显示</button>
     </div>
 
     <script>
@@ -18,6 +21,7 @@
         data: {
           message: "你好小黑",
           num: 1,
+          isShow: true,
           school: {
             name: "feix",
             mobile: "4002341234",
@@ -29,9 +33,13 @@
             //alert("hello");
             this.message = "你好小白";
           },
+          doVisbile: function () {
+            this.isShow=!this.isShow;
+          },
           add: function () {
             this.num++;
           },
+          
           sub: function () {
             if (this.num > 0) {
               this.num--;
