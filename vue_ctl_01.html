@@ -7,13 +7,18 @@
   <body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-    <div id="app" >
+    <div id="app">
       <div v-show="isShow">
-      <button @click="sub">-</button><span>{{ num }}</span
-      ><button @click="add">+</button>      
-    </div>
-    <img :src="imgSrc" v-bind:title="imgTitle"/>
-    <button @click="doVisbile">是否显示</button>
+        <button @click="sub">-</button><span>{{ num }}</span
+        ><button @click="add">+</button>
+      </div>
+      <ul>
+        <li v-for="(item,index) in campus"> {{  item+index }}</li>
+      </ul>
+      <img :src="imgSrc" v-bind:title="imgTitle" />
+      <input type="text" v-model="attr1"/>
+
+      <button @click="doVisbile">是否显示</button>
     </div>
 
     <script>
@@ -21,6 +26,7 @@
         el: "#app",
         data: {
           message: "你好小黑",
+          attr1: "属性1",
           num: 1,
           imgSrc: "1.png",
           imgTitle: "测试图片",
@@ -37,12 +43,12 @@
             this.message = "你好小白";
           },
           doVisbile: function () {
-            this.isShow=!this.isShow;
+            this.isShow = !this.isShow;
           },
           add: function () {
             this.num++;
           },
-          
+
           sub: function () {
             if (this.num > 0) {
               this.num--;
